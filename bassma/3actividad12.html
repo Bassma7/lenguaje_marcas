@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapa de imagen</title>
+</head>
+<body>
+
+  <h1>Mapa de imagen</h1>
+  <p>Pulsa sobre una zona de la imagen para ir a su web.</p>
+
+  <img src="img/imagen.png" alt="Letra F formada por tres zonas de colores" usemap="#mapa">
+
+  <map name="mapa">
+    <area shape="rect" coords="205,183,249,397"
+          href="https://www.diariodesevilla.es" target="_blank" alt="Diario de Sevilla">
+
+    
+    <area shape="rect" coords="249,182,421,229"
+          href="https://www.juntadeandalucia.es" target="_blank" alt="Junta de Andalucía">
+
+   
+    <area shape="rect" coords="250,268,420,313"
+          href="https://blogsaverroes.juntadeandalucia.es/iestorrredelosguzmanes/" target="_blank" alt="IES torre de los Guzmanes">
+  </map>
+
+</body>
+</html>
