@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Organización de Fiesta de Cumpleaños</title>
+</head>
+<body>
+<style> 
+th, td { 
+  border: 1px solid black; 
+} 
+</style>
+    <h1>🎉 ¡Organiza tu asistencia a mi Fiesta de Disfraces! 🎉</h1>
+    <p>Por favor, rellena este formulario para ayudarme a preparar todo.</p>
+
+    <form action="#" method="POST">
+        
+        <div>
+            <label for="nombre"><strong>1. Tu nombre y apellidos:</strong></label><br>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Ana Pérez" required autofocus>
+        </div>
+        <br>
+        <div>
+            <label for="tematica"><strong>2. ¿Qué temática prefieres para la fiesta?</strong></label><br>
+            <select id="tematica" name="tematica">
+                <option value="superheroes">Superhéroes y Villanos</option>
+                <option value="anos80">Años 80 y 90</option>
+                <option value="terror">Halloween / Terror</option>
+                <option value="peliculas">Personajes de Cine</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label><strong>3. ¿Tienes alguna intolerancia o alergia alimentaria?</strong></label><br>
+            <input type="checkbox" id="gluten" name="intolerancias" value="gluten">
+            <label for="gluten">Gluten (Celiaco)</label><br>
+            
+            <input type="checkbox" id="lactosa" name="intolerancias" value="lactosa">
+            <label for="lactosa">Lactosa</label><br>
+            
+            <input type="checkbox" id="frutossecos" name="intolerancias" value="frutos_secos">
+            <label for="frutossecos">Frutos secos</label><br>
+            
+            <input type="checkbox" id="vegano" name="intolerancias" value="vegano">
+            <label for="vegano">Vegetariano / Vegano</label>
+        </div>
+        <br>
+        <div>
+            <label for="acompanantes"><strong>4. ¿Vas a traer algún acompañante? (Indica cuántos):</strong></label><br>
+            <input type="number" id="acompanantes" name="acompanantes" min="0" max="5" value="0">
+        </div>
+        <br>
+        <div>
+            <label for="color_favorito"><strong>5. Elige un color que te gustaría que predomine en la decoración:</strong></label><br>
+            <input type="color" id="color_favorito" name="color_favorito" value="#ff0000">
+        </div>
+        <br>
+        <div>
+            <label for="comentarios"><strong>6. ¿Alguna idea, sugerencia o canción que no pueda faltar?</strong></label><br>
+            <textarea id="comentarios" name="comentarios" rows="4" cols="45" placeholder="Escribe aquí tus sugerencias..."></textarea>
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="Enviar respuestas">
+            <input type="reset" value="Borrar formulario">
+        </div>
+    </form>
+
+</body>
+</html>

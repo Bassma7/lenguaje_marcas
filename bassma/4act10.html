@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de tipos de datos HTML5</title>
+</head>
+<body>
+    <style> 
+th, td { 
+  border: 1px solid black; 
+} 
+</style>
+    <h1>Formulario HTML5</h1>
+    <form action="" method="GET">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required autofocus>
+        </div>
+        <br>
+        <div>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <br>
+        <div>
+            <label for="url">URL:</label>
+            <input type="url" id="url" name="url" placeholder="Escribe la URL de tu página">
+        </div>
+        <br>
+        <div>
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha">
+        </div>
+        <br>
+        <div>
+            <label for="tiempo">Tiempo:</label>
+            <input type="time" id="tiempo" name="tiempo">
+        </div>
+        <br>
+        <div>
+            <label for="fechahora">Fecha y hora:</label>
+            <input type="datetime" id="fechahora" name="fechahora">
+        </div>
+        <br>
+        <div>
+            <label for="mes">Mes:</label>
+            <input type="month" id="mes" name="mes">
+        </div>
+        <br>
+        <div>
+            <label for="semana">Semana:</label>
+            <input type="week" id="semana" name="semana">
+        </div>
+        <br>
+        <div>
+            <label for="numero">Número (min -10, max 10):</label>
+            <input type="number" id="numero" name="numero" min="-10" max="10">
+        </div>
+        <br>
+        <div>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono">
+        </div>
+        <br>
+        <div>
+            <label for="busqueda">Término de búsqueda:</label>
+            <input type="search" id="busqueda" name="busqueda">
+        </div>
+        <br>
+        <div>
+            <label for="color">Color favorito:</label>
+            <input type="color" id="color" name="color">
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+</body>
+</html>

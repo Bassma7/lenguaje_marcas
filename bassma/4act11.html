@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de contacto</title>
+</head>
+<body>
+<style> 
+th, td { 
+  border: 1px solid black; 
+} 
+</style>
+    <table bgcolor="#A4C2F4" width="400" cellpadding="15" cellspacing="0" border="0" align="center">
+        <tr>
+            <td>
+                <form action="#" method="POST">
+                    
+                    <p><b>Nombre:</b></p>
+                    <input type="text" name="nombre" placeholder="Escribe tu nombre" size="40">
+                    <br><br>
+
+                    <p><b>Email:</b></p>
+                    <input type="email" name="email" placeholder="correo@empresa.com" size="40">
+                    <br><br>
+
+                    <p><b>Asunto</b></p>
+                    <select name="asunto" size="3" style="width: 100%;">
+                        <option value="presupuesto">Pedir presupuesto web</option>
+                        <option value="cita">Solicitar cita previa</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                    <br><br>
+
+                    <p><b>¿Cómo nos ha conocido?</b></p>
+                    <input type="checkbox" name="conocido" value="amigo"> Un amigo
+                    <input type="checkbox" name="conocido" value="google"> Googleando
+                    <input type="checkbox" name="conocido" value="buzoneo"> Buzoneo
+                    <input type="checkbox" name="conocido" value="otros"> Otros
+                    <br><br>
+
+                    <p><b>Escribe tu mensaje</b></p>
+                    <textarea name="mensaje" rows="6" cols="42"></textarea>
+                    <br><br>
+
+                    <p>
+                        <input type="checkbox" name="aceptar" required>
+                        He leído y acepto el aviso legal y la política de privacidad.
+                    </p>
+                    <br>
+
+                    <input type="submit" value="Enviar">
+
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

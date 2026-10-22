@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style> 
+th, td { 
+  border: 1px solid black; 
+} 
+</style>
+<h1>Formulario de registro</h1>
+<div>
+    <label type="nombre">Nombre:</label>
+    <input type="text" id="nombre">
+</div>
+<div>
+    <br><label type="apellido">apellido:</label>
+    <input type="text" id="apellido">
+</div>
+<div>
+    <br><label type="sexo">Sexo:</label>
+    <input type="radio"  value="hombre" required>
+    <label for="hombre"> hombre</label>
+    <input type="radio" value="mujer" required>
+    <label for="mujer"> mujer</label>
+</div>
+<diV>
+    <br><label type="correo"> Correo</label>
+    <input type="text" id="correo">
+</diV>
+<div>
+    <br><label type="población">Población:</label>
+    <select id="población" name="población">
+        <option value="Alicante" selected> Alicante</option>
+        <option value="Sevilla">Sevilla</option>
+    </select>
+</div>
+<div>
+    <br><label type="descripción">Descripción:</label>
+    <textarea type="text" id="descripción" rows="4" cols="40" ></textarea>
+</div>
+<div>
+    <input type="checkbox" value="Deseo recibir información sobre novedades y ofertas"/>
+    <label for="Deseo recibir información sobre novedades y ofertas">Deseo recibir información sobre novedades y ofertas</label>
+    <br><input type="checkbox"  value="Declaro haber leido y aceptar las condiciones generales del programa y la normativa sobre proteccion de datos"/>
+    <label for="Declaro haber leido y aceptar las condiciones generales del programa y la normativa sobre proteccion de datos"> Declaro haber leido y aceptar las condiciones generales del programa y la normativa sobre proteccion de datos</label>
+<div>
+    <br><input type="submit" value="Enviar">
+</div>
+</body>
+</html>

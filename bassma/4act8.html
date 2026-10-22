@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style> 
+th, td { 
+  border: 1px solid black; 
+} 
+</style> 
+<fieldset>
+     <legend>Datos de la incidencia:</legend>
+    <div>
+        <label for="usuario">Usuario:</label>
+        <br><input type="text" id="usuario">
+    </div>
+    
+        <br><label for="Departamento">Departamento:</label>
+        <br><select id="Departamento" name="Departamento">
+        <option value="informatica" selected>Informática</option>
+        <option value="administracion">Administración</option>
+        </select>
+    </div>
+    <div>
+        <br><label for="Descripciòn">Descripcón</label>
+        <br><textarea type="text" id="descripción" rows="4" cols="40" >Describa la incidencia...</textarea>
+    </div>
+    <div>
+        <br><label for="Contraseña">Contraseña</label>
+        <br><input type="password" id="contraseña">
+    </div>
+    </fieldset>
+<fieldset>
+     <legend>Botones de reset y envío:</legend>
+    <input type="submit" value="Resetear">
+    <input type="submit" value="Enviar">
+</fieldset>
+
+</body>
+</html>
