@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Resumen: Control de versiones</title>
+<style>
+  body { font-family: Arial, sans-serif; color: #5a1a3a; background: #fff0f6; margin: 40px; line-height: 1.5; }
+  h1 { color: #d63384; border-bottom: 3px solid #ff85b3; padding-bottom: 8px; }
+  h2 { color: #c2185b; background: #ffe0ef; padding: 6px 10px; border-left: 6px solid #ff4d94; margin-top: 28px; }
+  h3 { color: #d63384; margin-bottom: 4px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+  th { background: #ff85b3; color: #fff; padding: 8px; text-align: left; }
+  td { border: 1px solid #ffb3d1; padding: 8px; background: #fff; vertical-align: top; }
+  code { background: #ffe0ef; color: #b0005a; padding: 2px 5px; border-radius: 4px; }
+  strong { color: #d63384; }
+  li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<h1>Resumen: Fundamentos de los sistemas de control de versiones</h1>
+
+<h2>1. Conceptos básicos</h2>
+<ul>
+  <li><strong>Control de versiones:</strong> registro del histórico de todos los cambios de los ficheros de un proyecto. Permite volver a versiones anteriores y trabajar en equipo.</li>
+  <li><strong>Versión:</strong> el estado de todos los ficheros del proyecto en un momento concreto.</li>
+  <li><strong>Repositorio:</strong> espacio donde se guarda todo el proyecto (versión actual e historial). Suele ser un directorio.</li>
+  <li><strong>Historial de cambios:</strong> lista de todas las versiones guardadas a lo largo de la vida del proyecto.</li>
+  <li><strong>Ventajas:</strong> trabajo colaborativo y simultáneo sin pisarse, un sitio central para el código y su historial, y espacios separados para cada versión.</li>
+</ul>
+
+<h2>2. Tipos de sistemas</h2>
+<ul>
+  <li><strong>Centralizado (SVN):</strong> un único repositorio en un servidor. Cada desarrollador tiene una copia de trabajo (<em>working copy</em>) y usa <code>update</code> (traer cambios) y <code>commit</code> (subir cambios). Depende del servidor: sin conexión no se puede confirmar cambios.</li>
+  <li><strong>Distribuido (Git):</strong> cada desarrollador tiene una copia completa del repositorio con todo el historial. Puede trabajar sin conexión y sincronizar después. Git lo creó <strong>Linus Torvalds en 2005</strong>.</li>
+</ul>
+
+<h2>3. Repositorios local y remoto</h2>
+<ul>
+  <li><strong>Local:</strong> en tu PC. Ahí se guardan tus commits.</li>
+  <li><strong>Remoto:</strong> en un servidor, en una red privada o en la nube (GitHub, GitLab, Bitbucket).</li>
+  <li><strong>Push:</strong> local → remoto. <strong>Pull</strong> y <strong>fetch</strong>: remoto → local.</li>
+</ul>
+
+<h2>4. Áreas de Git y flujo de un cambio</h2>
+<p><strong>Workspace (directorio de trabajo) → Staging area → Repositorio local → Repositorio remoto</strong></p>
+<ul>
+  <li><strong>Staging area (área de preparación):</strong> zona intermedia donde eliges qué cambios irán en el siguiente commit. Se llena con <code>git add</code>.</li>
+  <li><strong>Analogía de la tienda online:</strong> <code>add</code> es meter productos en el carrito (y <code>restore --staged</code> los saca), y <code>commit</code> es confirmar la compra.</li>
+  <li><code>git add</code> guarda una foto del fichero en ese momento. Si lo modificas después, hay que volver a hacer <code>add</code>.</li>
+  <li><code>git add</code> no sube nada al remoto.</li>
+</ul>
+
+<h2>5. Instalación y configuración</h2>
+<ul>
+  <li>Instalar Git (en Windows desde git-scm.com; en Ubuntu con <code>sudo apt update</code> y <code>sudo apt-get install git</code>).</li>
+  <li>Comprobar la versión: <code>git --version</code>.</li>
+  <li>Identificarte: <code>git config --global user.name "Tu Nombre"</code> y <code>git config --global user.email "tu@email.com"</code>.</li>
+  <li><strong>Token de acceso personal (PAT):</strong> GitHub lo usa en lugar de la contraseña. Se crea en Settings → Developer settings → Personal access tokens. Para consola, permisos <code>repo</code> (y <code>workflow</code> si usas GitHub Actions). Se puede revocar o regenerar.</li>
+  <li>Guardar el token: <code>git config --global credential.helper manager</code>. El primer push pedirá usuario y token.</li>
+  <li>VS Code como editor y herramienta de merge: <code>git config --global core.editor "code --wait"</code>, <code>git config --global merge.tool vscode</code>, <code>git config --global mergetool.vscode.cmd 'code --wait $MERGED'</code>.</li>
+</ul>
+
+<h2>6. Crear y clonar repositorios</h2>
+<ul>
+  <li><strong>En GitHub (web):</strong> crear cuenta, crear repositorio, añadir un README y los ficheros del proyecto. GitHub Education ofrece ventajas a estudiantes.</li>
+  <li><strong>Clonar:</strong> <code>git clone URL</code> crea una copia local con su carpeta oculta <code>.git</code>.</li>
+  <li><strong>Iniciar uno nuevo en local:</strong> <code>git init</code>.</li>
+  <li><strong>Clonar desde VS Code:</strong> Ctrl+Mayús+P o F1, escribir <code>git clone</code> y elegir la carpeta de destino.</li>
+</ul>
+
+<h2>7. Subir cambios (local → remoto)</h2>
+<ol>
+  <li><code>git status</code>: ver qué ha cambiado.</li>
+  <li><code>git add archivo</code>, <code>git add directorio</code> o <code>git add .</code>: pasar al staging.</li>
+  <li><code>git commit -m "mensaje"</code>: guardar en el repositorio local.</li>
+  <li><code>git push origin main</code> (o <code>git push &lt;remoto&gt; &lt;rama&gt;</code>): subir al remoto.</li>
+</ol>
+<ul>
+  <li><code>git add *</code> no incluye los ficheros ocultos. <code>git add .</code> sí.</li>
+  <li><code>git push --force &lt;remoto&gt; &lt;rama&gt;</code>: sube tus cambios aunque el remoto tenga otros. Puede borrar trabajo ajeno, así que es peligroso. Puede fallar si hay cambios remotos que no tienes en local.</li>
+</ul>
+
+<h2>8. Traer cambios (remoto → local)</h2>
+<ul>
+  <li><code>git pull</code>: descarga los cambios remotos y los fusiona.</li>
+  <li><code>git fetch</code> / <code>git fetch --all</code>: descarga la información remota sin fusionar ni cambiar nada.</li>
+  <li>Ejemplo: cambias algo en la web de GitHub y luego haces <code>git pull repoEntornosProfe main</code> para traerlo a tu PC.</li>
+</ul>
+
+<h2>9. Repositorio remoto con nombre</h2>
+<ul>
+  <li><code>git remote add nombre URL</code>: guarda la URL con un nombre (por ejemplo <code>origin</code>).</li>
+  <li><code>git remote -v</code>: lista los remotos configurados.</li>
+</ul>
+
+<h2>10. Deshacer cambios</h2>
+<table>
+  <tr><th>Comando</th><th>Qué hace</th></tr>
+  <tr><td><code>git restore --staged archivo</code></td><td>Saca el fichero del staging area</td></tr>
+  <tr><td><code>git restore archivo</code></td><td>Recupera lo borrado o modificado en el directorio de trabajo</td></tr>
+  <tr><td><code>git checkout -- archivo</code></td><td>Descarta cambios y vuelve a la versión del repositorio. No borra historial</td></tr>
+  <tr><td><code>git rm archivo</code></td><td>Deja de versionar el fichero. Con <code>--cached</code> lo mantiene en disco; con <code>-r</code> borra subdirectorios. Hay que hacer commit y push</td></tr>
+  <tr><td><code>git reset --soft</code></td><td>Mueve la versión, sin tocar staging ni working directory</td></tr>
+  <tr><td><code>git reset --mixed</code></td><td>Toca el staging, no el working directory</td></tr>
+  <tr><td><code>git reset --hard</code></td><td>Elimina los cambios del staging y del working directory. Irreversible</td></tr>
+</table>
+<p>Según los apuntes, <code>reset</code> borra el rastro en el historial, así que se usa con cuidado.</p>
+
+<h2>11. Conflictos y pull.rebase</h2>
+<ul>
+  <li><strong>Conflicto:</strong> dos personas modifican la misma línea del mismo fichero, o uno modifica un fichero y el otro lo borra.</li>
+  <li><strong>Flujo de resolución:</strong>
+    <ol>
+      <li><code>git pull</code> (Git avisa de que hay cambios remotos).</li>
+      <li>Abrir el fichero: verás las marcas <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> y <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</li>
+      <li>Quitar las marcas y dejar el código final.</li>
+      <li>Probar que el código funciona.</li>
+      <li><code>git add .</code>, luego <code>git commit</code> (o <code>git rebase --continue</code> si estás en rebase).</li>
+      <li><code>git push</code>.</li>
+    </ol>
+  </li>
+  <li><strong>Merge (por defecto):</strong> <code>git pull</code> crea un commit de unión.</li>
+  <li><strong><code>git config --global pull.rebase true</code>:</strong> Git aparta tus commits, descarga lo remoto y vuelve a poner tus commits encima. El historial queda en línea recta y sin commits de unión innecesarios.</li>
+</ul>
+
+<h2>12. Ramas</h2>
+<ul>
+  <li><strong>Qué es:</strong> una línea de trabajo independiente dentro del repositorio. Permite trabajar en paralelo.</li>
+  <li><strong>Rama por defecto de GitHub:</strong> <code>main</code>.</li>
+  <li><code>git branch</code> lista las locales (la actual lleva <code>*</code>). <code>git branch -r</code>: remotas. <code>git branch -a</code>: todas.</li>
+  <li><code>git branch nombre</code> crea la rama, pero <strong>no</strong> te cambia a ella.</li>
+  <li><code>git switch nombre</code> cambia de rama. <code>git switch -c nombre</code> (o <code>git checkout -b nombre</code>) la crea y te cambia a ella.</li>
+  <li><code>git push -u origin nombre</code> sube una rama nueva y la vincula. Después basta con <code>push</code> y <code>pull</code>.</li>
+  <li><code>git branch -d nombre</code> borra una rama local.</li>
+  <li><strong>Traer la rama de un compañero:</strong> <code>git fetch --all</code>, luego <code>git branch -r</code> para verla y <code>git switch nombreRamaCompi</code>.</li>
+  <li><strong>Fusionar:</strong> <code>git switch main</code> y <code>git merge rama</code> integra los cambios de la rama en main.</li>
+  <li><strong>Flujo completo:</strong> <code>git clone URL</code> y <code>cd repo</code>, <code>git switch -c feature</code>, editar <code>index.html</code>, <code>git add .</code>, <code>git commit -m "Cambio en feature"</code>, <code>git switch main</code>, <code>git merge feature</code>, <code>git push</code>.</li>
+</ul>
+
+<h2>13. Pull Request</h2>
+<ul>
+  <li>Solicitud para integrar los cambios de una rama en otra, con revisión y aprobación antes de fusionar.</li>
+  <li>En GitLab se llama <strong>Merge Request</strong>.</li>
+  <li>Se crea desde la interfaz de GitHub o por comandos.</li>
+  <li>No se sube nada directo a la rama principal.</li>
+</ul>
+
+<h2>14. Versiones, etiquetas y nomenclatura</h2>
+<ul>
+  <li><strong>Tag:</strong> marca una versión concreta (por ejemplo 1.0.0). <code>git push --tags</code> sube las etiquetas.</li>
+  <li><strong>Cambio mayor o release:</strong> cambio grande que genera una nueva versión del proyecto.</li>
+  <li><strong>Cambio menor:</strong> añade funcionalidad sin romper lo anterior.</li>
+  <li><strong>Bugfix o parche:</strong> arregla errores sin añadir funcionalidad.</li>
+  <li><strong>Tarea beta:</strong> versión de prueba antes de la final.</li>
+  <li>Se puede crear una rama a partir de un tag para mantener una versión concreta.</li>
+</ul>
+
+<h2>15. Historial y estados</h2>
+<ul>
+  <li><code>git log archivo</code> y <code>git show</code>: historial de cambios.</li>
+  <li><code>git diff</code> compara workspace y staging. <code>git diff HEAD</code> compara workspace y repositorio local.</li>
+  <li><strong>Estados en VS Code:</strong> U (untracked, nuevo sin añadir), M (modificado), D (eliminado), T (tracked, bajo seguimiento), A (añadido al staging), R (renombrado), C (conflicto).</li>
+  <li>En los cambios de un fichero se distinguen las líneas añadidas, modificadas y eliminadas.</li>
+</ul>
+
+<h2>16. Tabla resumen de comandos</h2>
+<table>
+  <tr><th>Comando</th><th>Para qué sirve</th></tr>
+  <tr><td><code>git --version</code></td><td>Comprobar la versión instalada</td></tr>
+  <tr><td><code>git config --global user.name / user.email</code></td><td>Configurar tu identidad</td></tr>
+  <tr><td><code>git init</code></td><td>Crear un repositorio local</td></tr>
+  <tr><td><code>git clone URL</code></td><td>Copiar un repositorio remoto</td></tr>
+  <tr><td><code>git status</code></td><td>Ver el estado de los ficheros</td></tr>
+  <tr><td><code>git add archivo</code> / <code>git add .</code></td><td>Pasar cambios al staging area</td></tr>
+  <tr><td><code>git commit -m "msg"</code></td><td>Guardar en el repositorio local</td></tr>
+  <tr><td><code>git push origin rama</code></td><td>Subir al remoto</td></tr>
+  <tr><td><code>git push -u origin rama</code></td><td>Subir una rama nueva y vincularla</td></tr>
+  <tr><td><code>git push --force</code></td><td>Forzar la subida (peligroso)</td></tr>
+  <tr><td><code>git push --tags</code></td><td>Subir etiquetas</td></tr>
+  <tr><td><code>git pull</code></td><td>Traer y fusionar cambios remotos</td></tr>
+  <tr><td><code>git fetch</code> / <code>git fetch --all</code></td><td>Actualizar información remota sin fusionar</td></tr>
+  <tr><td><code>git remote add nombre URL</code></td><td>Guardar la URL remota con un nombre</td></tr>
+  <tr><td><code>git remote -v</code></td><td>Ver los remotos configurados</td></tr>
+  <tr><td><code>git restore --staged archivo</code></td><td>Sacar un fichero del staging</td></tr>
+  <tr><td><code>git restore archivo</code></td><td>Recuperar un fichero</td></tr>
+  <tr><td><code>git checkout -- archivo</code></td><td>Descartar cambios en el directorio de trabajo</td></tr>
+  <tr><td><code>git rm</code> / <code>--cached</code> / <code>-r</code></td><td>Dejar de versionar un fichero</td></tr>
+  <tr><td><code>git reset --soft / --mixed / --hard</code></td><td>Volver a una versión anterior</td></tr>
+  <tr><td><code>git branch</code> / <code>-r</code> / <code>-a</code></td><td>Listar ramas</td></tr>
+  <tr><td><code>git branch nombre</code></td><td>Crear rama sin cambiar a ella</td></tr>
+  <tr><td><code>git branch -d nombre</code></td><td>Borrar una rama</td></tr>
+  <tr><td><code>git switch nombre</code></td><td>Cambiar de rama</td></tr>
+  <tr><td><code>git switch -c nombre</code> / <code>git checkout -b nombre</code></td><td>Crear rama y cambiar a ella</td></tr>
+  <tr><td><code>git merge rama</code></td><td>Fusionar una rama en la actual</td></tr>
+  <tr><td><code>git log archivo</code> / <code>git show</code></td><td>Ver historial</td></tr>
+  <tr><td><code>git diff</code> / <code>git diff HEAD</code></td><td>Ver diferencias</td></tr>
+</table>
+
+<h2>17. Puntos que suelen caer</h2>
+<ul>
+  <li>Diferencia entre <strong>add</strong> y <strong>commit</strong>, y qué es el staging area.</li>
+  <li>Diferencia entre <strong>centralizado</strong> (SVN) y <strong>distribuido</strong> (Git).</li>
+  <li>Diferencia entre repositorio <strong>local</strong> y <strong>remoto</strong>, y entre <strong>push</strong>, <strong>pull</strong> y <strong>fetch</strong>.</li>
+  <li>Qué se hace en cada situación: clonar, traer cambios de la web, subir sin conflicto y subir con conflicto.</li>
+  <li>Diferencia entre <strong>restore</strong>, <strong>checkout</strong> y <strong>reset</strong>, y los tres modos de reset.</li>
+  <li>Qué es un <strong>conflicto</strong> y cómo se resuelve.</li>
+  <li>Qué hace <strong>pull.rebase</strong> y por qué deja el historial limpio.</li>
+  <li>Qué es una <strong>rama</strong>, cómo se crea y se fusiona, y qué es un <strong>Pull Request</strong>.</li>
+</ul>
+
+</body>
+</html>
+
+</body>
+</html>

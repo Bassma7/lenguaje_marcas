@@ -8,11 +8,17 @@
 <body>
     <h1>IES TG</h1>
     <h2>Departamento de Informática</h2>
-    <p>Bienvenidos a la web<b>Departamento de In formática</b>del IES TG. Aquí encontrarás unformación sibre los <em> ciclos formativos</em> que impartimos, el horario de clases y la forma de ponerte en contacto con nosotros.</em></p>
+    <p>Bienvenidos a la web <b>Departamento de Informática</b>del IES TG. Aquí encontrarás unformación sibre los <em> ciclos formativos</em>
+         que impartimos, el horario de clases y la forma de ponerte en contacto con nosotros.</em></p>
     <img src="img/instituto.png" width="200" height="200">
-    <p>Menú:<a href="Nuestros ciclos formativos">Ciclos</a> | <a href="Cómo matricularse">Matrícula</a> | <a href="Horario de 1ºDAM"> Horario</a> | <a href="Contacto">Contacto</a>
+    <p>Menú:
+        <a href="#ciclos">Ciclos</a> | 
+        <a href="#matrícula">Matrícula</a> | 
+        <a href="#horario"> Horario</a> | 
+        <a href="contacto.html">Contacto</a>
+    </p>
 <hr>
-<h2>Nuestros ciclos formativos</h2>
+<h2 id="ciclos">Nuestros ciclos formativos</h2>
 <ul>
     <li>Grado Medio</li>
     <ul>
@@ -25,14 +31,14 @@
         <li>Administración de Sistemas Informáticos de Red(ASIR)</li>
     </ul>
 </ul>
-<h2>Cómo matricularse</h2>
+<h2 id="matrícula"> matricularse</h2>
 <ol>
-    <li>Consulta las fechas en la web de la<a href=""> la Cnsejería de Educación</a></li>
+    <li>Consulta las fechas en la web de la<a href="https://www.juntadeandalucia.es/organismos/educacion.html"> la Consejería de Educación</a></li>
     <li>Rellena la solicitud de admisión</li>
     <li>Consulta las listas de admitidos</li>
     <li>Formaliza la matrícula en la secretaría del centro</li>
 </ol>
-<h2>Horario de 1ºDAM</h2>
+<h2 id="horario">Horario de 1ºDAM</h2>
 
 <style> 
 table, th, td { 
@@ -64,7 +70,7 @@ table, th, td {
     </tr>
     <tr>
         <td><b>9:15-10:15</b></td>
-        <td>Lenguaje de Mrcas</td>
+        <td>Lenguaje de Marcas</td>
         <td>Bases de Datos </td>
         <td>Programaciòn</td>
     </tr>
@@ -82,10 +88,15 @@ table, th, td {
     </tr>
 </table>
 <hr>
-<footer>
-<p>IES TG - Departamento de Informática</p>
-<p>¿Tienes dudas?<a href="">Escribenos</a></p>
-<p>© 2026</p>
-</footer>
+
+    <footer>
+       <br> IES TG - Departamento de Informática<br>
+        ¿Tienes dudas?<a href="">Escribenos</a><br>
+        © 2026
+    </footer>
+
+        <!-- porque usando el rowspan="2" yo estoy diciendo
+        al navegador las celdas que tiene que ocupar y el navegador
+        lee el codigo fila por fila -->
 </body>
 </html>
